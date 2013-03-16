@@ -15,12 +15,12 @@ fw = open(working_dir + output_filename, 'w')
 
 for i in range(1, int(f.readline())+1):
     N = int(f.readline()) # number of levels    
-    p2 = PriorityQueue(N) # stars needed for levels to complete with 2 stars
-    ind = [[0, 0, 0]] # index    
+    p2 = PriorityQueue(N) # stars needed for levels to be completed with 2 stars
+    ind = [[0, 0, 0]] # index, ind[0] is not used   
     for j in range(1, N+1):
         line = f.readline().strip().split()
         aj, bj = int(line[0]), int(line[1])        
-        p2.put((bj, bj, j))
+        p2.put((bj, bj, j)) # (priority, stars, level)
         ind.append([aj, bj, 0]) # 3rd column can be:
                                 # 0 - level not completed
                                 # 1 - level completed with 1 star
