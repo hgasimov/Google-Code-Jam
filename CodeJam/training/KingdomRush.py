@@ -5,7 +5,7 @@ Created on Mar 15, 2013
 '''
 from queue import PriorityQueue
 
-working_dir = '/Users/huseyngasimov/Programs/eclipse/workspace/CodeJam/inputoutput_files/KingdomRush/' 
+working_dir = '/Users/huseyngasimov/git/CodeJam/CodeJam/inputoutput_files/KingdomRush/' 
 input_filename = 'B-large-practice.in'
 output_filename = 'B-large-practice.out'
 DEBUG = False
@@ -14,14 +14,12 @@ f = open(working_dir + input_filename, 'r')
 fw = open(working_dir + output_filename, 'w')
 
 for i in range(1, int(f.readline())+1):
-    N = int(f.readline()) # number of levels
-    p1 = PriorityQueue(N) # stars needed for levels to complete with 1 star
+    N = int(f.readline()) # number of levels    
     p2 = PriorityQueue(N) # stars needed for levels to complete with 2 stars
     ind = [[0, 0, 0]] # index    
     for j in range(1, N+1):
         line = f.readline().strip().split()
         aj, bj = int(line[0]), int(line[1])        
-        p1.put((aj, aj, j))    
         p2.put((bj, bj, j))
         ind.append([aj, bj, 0]) # 3rd column can be:
                                 # 0 - level not completed
