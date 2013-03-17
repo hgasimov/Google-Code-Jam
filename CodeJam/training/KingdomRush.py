@@ -43,10 +43,9 @@ for i in range(1, int(f.readline())+1):
             if DEBUG: print(len(ind))
             for m in range(1, len(ind)):
                 if (ind[m][2] == 0 and ind[m][0] <= curStars):
-                    if (level == -1):
+                    if (level == -1 or ind[m][1] > ind[level][1]):
                         level = m
-                    elif (ind[m][1] > ind[level][1]):
-                        level = m
+
                         
             if DEBUG: print('L1 : ' + str(level))
             if (level == -1):
