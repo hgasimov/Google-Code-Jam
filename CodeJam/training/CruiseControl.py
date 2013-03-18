@@ -9,10 +9,6 @@ working_dir = '/Users/huseyngasimov/git/CodeJam/CodeJam/inputoutput_files/Cruise
 input_filename = 'C-small-practice.in'
 output_filename = 'C-small-practice.out'
 DEBUG = False
-testcase = 15
-
-
-INFINITY = sys.maxsize
 
 f = open(working_dir + input_filename, 'r')
 fw = open(working_dir + output_filename, 'w')
@@ -115,8 +111,7 @@ for i in range(1, int(f.readline())+1):
     while(not(collided) and len(waitTime) > 0):        
         delta_t = min(waitTime) # earliest collision
         t += delta_t        
-        if DEBUG and i == testcase and delta_t < 0:
-            print('delta_t = ' + str(delta_t))
+
         # calculate new positions after delta_t time
         for x in range(0, N):
             cars[x][2] += cars[x][1] * delta_t
