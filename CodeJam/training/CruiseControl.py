@@ -3,7 +3,6 @@ Created on Mar 17, 2013
 
 @author: huseyngasimov
 '''
-import sys
 
 working_dir = '/Users/huseyngasimov/git/CodeJam/CodeJam/inputoutput_files/CruiseControl/' 
 input_filename = 'C-small-practice.in'
