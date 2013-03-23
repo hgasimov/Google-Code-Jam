@@ -3,45 +3,15 @@ Created on Mar 21, 2013
 
 @author: huseyngasimov
 '''
-
-def calc(s1, s2):
-    if DEBUG: 
-        print('s1 is: ')
-        print(s1)
-        print('s2 is: ')
-        print(s2)        
+def setToLine(s):
+    line = ''
+    for i in s: line += str(i) + ' '        
+    return line
     
-    sum1, sum2 = sum(s1), sum(s2)
-    if sum1 == sum2:
-        return s1, s2
-    elif len(s1) > 1 and sum1 > sum2:
-        for j in range(len(s1)):
-            s1j = s1[j]
-            if sum1 - s1j >= sum2:                
-                s1.pop(j)
-                rs11, rs12 = calc(s1, s2)
-                if rs11 == []:
-                    if sum1 - s1j >= sum2 + s1j:
-                        s2.append(s1j)
-                        rs21, rs22 = calc(s1, s2)
-                        if rs21 == []:
-                            s2.pop()
-                        else:
-                            return rs21, rs22
-                    
-                    s1.insert(j, s1j)
-                else:
-                    return rs11, rs12
-            else:
-                return [], []
-        
-        return [], []  # after no result from 'for' loop          
-    else:
-        return [], []
-
+    
 working_dir = '/Users/huseyngasimov/git/CodeJam/CodeJam/inputoutput_files/EqualSums/' 
-input_filename = 'example_in.txt'
-output_filename = 'example_out.txt'
+input_filename = 'C-small-practice.in'
+output_filename = 'C-small-practice.out'
 DEBUG = False
 
 f = open(working_dir + input_filename, 'r')
@@ -51,20 +21,39 @@ for i in range(1, int(f.readline())+1):
     line = f.readline().strip().split()
     #print(line)    
     N = int(line[0])
-    s1 = []
-    s2 = []    
+    S = []
     for j in range(1, N+1):
-        s1.append(int(line[j]))
+        S.append(int(line[j]))
          
-    #s1 = [1, 2, 3]
-    s1.sort()
-    rs1, rs2 = calc(s1, s2)
-    print('Result: ')
-    print(rs1)
-    print(rs2)
+    k = sum(S) # upper bound for the sum
+    x = [[]] + [None]*k # x[i] = list_i --means--> sum(list_i)=i
+    calc = [] # list if calculated numbers
+    found = False
+    for s in S:
+        calc.append(s)
+        for base_sum in range(sum(calc), -1, -1):
+            if x[base_sum] is not None:
+                if x[base_sum + s] is None:
+                    x[base_sum + s] = x[base_sum] + [s]
+                else:
+                    S1 = set(x[base_sum] + [s])
+                    S2 = set(x[base_sum + s])
+                    intersect = S1 & S2
+                    S1 -= intersect
+                    S2 -= intersect
+                    print('Case #' + str(i) + ':\n' + setToLine(S1))
+                    fw.write('Case #' + str(i) + ':\n' + setToLine(S1) + '\n')
+                    print(setToLine(S2))
+                    fw.write(setToLine(S2) + '\n')
+                    
+                    found = True
+                    break
+        
+        if found: break
 
-
-
-
+    if not found: 
+        print('Case #' + str(i) + ':Impossible')
+        fw.write('Case #' + str(i) + ':Impossible\n')
+                        
 fw.close()
 f.close()
