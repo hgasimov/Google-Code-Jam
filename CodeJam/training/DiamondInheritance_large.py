@@ -15,7 +15,6 @@ fw = open(working_dir + output_filename, 'w')
 for i in range(1, int(f.readline())+1):            
     N = int(f.readline().strip())
     graph = [set([])]*N
-    inv_graph = [set([])]*N
     reach_list = [set([])]*N
     unchecked = set([]) # whether cycle check has been done at this node
     found = False
@@ -26,8 +25,7 @@ for i in range(1, int(f.readline())+1):
             unchecked.add(j)
             for k in range(1, len(line)):                
                 c = int(line[k]) - 1 # because numbering starts from 0 here
-                graph[j] = graph[j] | set([c])
-                inv_graph[c] = inv_graph[c] | set([j])                                                              
+                graph[j] = graph[j] | set([c])                                                            
     
     
     while len(unchecked) > 0 and not found:
