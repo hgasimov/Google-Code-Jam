@@ -7,8 +7,7 @@ Created on Mar 24, 2013
 working_dir = '/Users/huseyngasimov/git/CodeJam/CodeJam/inputoutput_files/DiamondInheritance/' 
 input_filename = 'A-large-practice.in'
 output_filename = 'A-large-practice.out'
-DEBUG = True
-testcase =  1
+DEBUG = False
 
 f = open(working_dir + input_filename, 'r')
 fw = open(working_dir + output_filename, 'w')
