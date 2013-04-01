@@ -106,3 +106,6 @@ for caseno in range(1, int(f.readline())+1):
     print('Case #' + str(caseno) + ': ' + str(res))
     fw.write('Case #' + str(caseno) + ': '  + str(res) + '\n')    
      
+
+
+
