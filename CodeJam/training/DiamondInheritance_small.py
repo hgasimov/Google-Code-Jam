@@ -20,8 +20,7 @@ def checkCycles(n):
 working_dir = '/Users/huseyngasimov/git/CodeJam/CodeJam/inputoutput_files/DiamondInheritance/' 
 input_filename = 'A-small-practice.in'
 output_filename = 'A-small-practice.out'
-DEBUG = True
-testcase =  30
+DEBUG = False
 
 f = open(working_dir + input_filename, 'r')
 fw = open(working_dir + output_filename, 'w')
