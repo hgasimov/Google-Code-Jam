@@ -18,7 +18,6 @@ class Bot(object):
     def move(self, who):
         if self.targets.empty(): return False
         target = int(self.targets.queue[0])        
-        #print (self.me + ': ' + who + ' ' + str(target))
         if self.position == target:            
             if self.me == who:
                 self.targets.get()
@@ -41,7 +40,6 @@ fw = open(working_dir + output_filename, 'w')
 
 for j in range(1, int(f.readline())+1):
     line = f.readline().strip()
-    #print(line)
     O = Bot('O', line)
     B = Bot('B', line)
             
@@ -50,7 +48,6 @@ for j in range(1, int(f.readline())+1):
     time = 0
     for i in range(N):
         who = pushes[1 + i*2]
-        #print(who)
         complete = False
         while not complete:
             complete = O.move(who) or complete
