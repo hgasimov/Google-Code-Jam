@@ -30,18 +30,10 @@ def cutColumn(col, lev):
     return n
 
 def createFalseMat():
-    row = []
-    for i in range(M): row.append(False)
-    res = []
-    for i in range(N): res.append(copy.copy(row))
-    return res
+    return [[False for x in range(M)] for y in range(N)]
 
 def initBoard():
-    row = []
-    for i in range(M): row.append(0)
-    res = []
-    for i in range(N): res.append(copy.copy(row))
-    return res
+    return [[0 for x in range(M)] for y in range(N)]
 
 
 working_dir = '/Users/huseyngasimov/git/CodeJam/CodeJam/inputoutput_files/Lawnmower/' 
