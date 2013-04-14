@@ -1,9 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-package FacebookHackerCup;
-
 import java.io.*;
 import java.util.LinkedList;
 import java.util.Stack;
@@ -31,11 +25,7 @@ public class Treasure {
     int[] cameFrom;
     int curNode;
     
-    public static void main(String[] args) {
-        //BigInteger bi = new BigInteger("8");      
-        //bi = nextPolyndrome(bi);
-        //System.out.println(bi.toString() + " + " + isPolyndrome(bi));
-        
+    public static void main(String[] args) {        
         try {
             BufferedReader br = new BufferedReader(new FileReader(working_dir + input_filename));
             FileWriter fstream = new FileWriter(working_dir + output_filename);
@@ -48,7 +38,6 @@ public class Treasure {
                 int K = Integer.parseInt(line[0]);
                 int N = Integer.parseInt(line[1]);                
                 Treasure treasure = new Treasure(K, N);
-                //if (caseno == 24) System.out.println(K + " " + N);
                 
                 line = br.readLine().split(" ");
                 for(int i = 0; i < K; i++) 
@@ -67,20 +56,8 @@ public class Treasure {
 
                     treasure.addNode(keys, Ti);
                 }
-                
-         
-                /*
-                treasure.visitNode(2);                
-                treasure.printState();
-                
-                treasure.unvisitNode(2);                
-                treasure.printState();
-                */
-                
-                String result = "";
-                if (caseno == 20 || caseno == 21) result = "IMPOSSIBLE";
-                else   result = treasure.result();
-                //treasure.printState();
+            
+                String result =  result = treasure.result();
                 System.out.println("Case #" + caseno + ": " + result);
                 writeLineToFile(out, "Case #" + caseno + ": " + result);
             }
