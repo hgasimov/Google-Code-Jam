@@ -1,9 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-package FacebookHackerCup;
-
 import java.io.*;
 import java.math.BigInteger;
 import java.util.logging.Level;
@@ -24,9 +18,6 @@ public class FairandSquare {
     private BigInteger nmb;
     
     public static void main(String[] args) {
-        //BigInteger bi = new BigInteger("8");      
-        //bi = nextPolyndrome(bi);
-        //System.out.println(bi.toString() + " + " + isPolyndrome(bi));
         
         try {
             BufferedReader br = new BufferedReader(new FileReader(working_dir + input_filename));
@@ -71,7 +62,6 @@ public class FairandSquare {
         
         while (i2.compareTo(B) <= 0) {
             if (isPolyndrome(i2)) {
-                //System.out.println("i2 = " + i2.toString());
                 nmb = nmb.add(BigInteger.ONE);
             }
             
@@ -84,7 +74,6 @@ public class FairandSquare {
         return nmb;
     }
 
-    // sqrt floor
     private static BigInteger sqrtFloor(BigInteger n) {
         BigInteger a = BigInteger.ONE;
         BigInteger b = new BigInteger(n.shiftRight(5).add(new BigInteger("8")).toString());
@@ -119,7 +108,6 @@ public class FairandSquare {
         
         double mid = (double) n/2;       
         String base = si.substring(0, (int) Math.ceil(mid));  
-        //System.out.println(base);
         
         BigInteger basePoly = createPolyndrome(base, n % 2 == 1);
         
