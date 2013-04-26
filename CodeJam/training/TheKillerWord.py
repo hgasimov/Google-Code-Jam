@@ -5,7 +5,6 @@ Created on Apr 25, 2013
 '''
 
 def reveal(group, found, penalty, pattern, letter):
-    #print('letter = ' + letter)
     for i in range(len(group)):
         index = group[i] # dictionary position
         if found[index]: continue # if already found        
@@ -17,12 +16,8 @@ def reveal(group, found, penalty, pattern, letter):
                 penal = 0 # found => no penalty
                         
         penalty[index] += penal                
-    '''    
-    for i in range(len(group)):
-        index = group[i] 
-        print([D[index]] + [str(found[index])] + pattern[index] + [penalty[index]])    
-    '''
-
+    
+    
 # are the lists equal?
 def equal(l1, l2):
     if not len(l1) == len(l2): return False
@@ -65,7 +60,6 @@ def calcGroup(group, found, penalty, pattern, strategy, start_index):
                 newGroup.append(index2)
                 ingroup[j] = True
         
-        #print(newGroup)
         calcGroup(newGroup, found, penalty, pattern, strategy, y+1)
                 
     
@@ -77,8 +71,6 @@ input_filename = 'B-large-practice.in'
 output_filename = 'B-large-practice.out'
 maxLength = 10
 
-DEBUG = True
-testCase = 3
 
 f = open(working_dir + input_filename, 'r')
 fw = open(working_dir + output_filename, 'w')
@@ -115,8 +107,7 @@ for j in range(1, int(f.readline())+1):
             if penalty[k] > max_penalty or (penalty[k] == max_penalty and k < max_index):
                 max_penalty = penalty[k]
                 max_index = k
-            
-        
+                    
         result += ' ' + D[max_index]
                      
     print('Case #' + str(j) + ':' + result)
