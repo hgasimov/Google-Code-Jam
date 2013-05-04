@@ -48,19 +48,14 @@ public class ManageyourEnergy {
                         if (t[0] > t1[0]) return 1; 
                         else return -1;
                     }                
-                });                
-                
-                //for (int i = 0; i < N; i++)
-                //    System.out.println(sv[i][0] + " " + sv[i][1]); 
+                });                               
                 
                 for (int ind = 0; ind < N; ind++) {
                     long max = sv[ind][1];
                     int max_index = (int) sv[ind][0];
                     fillMaxAvail(v, E, R, marked, max_index);                    
                     marked[max_index] = true;
-                }
-                
-                //printV(v);
+                }                
                 
                 long result = 0;
                 for (int i = 0; i < N; i++) {                    
