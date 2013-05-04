@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package codejam;
 
 import java.io.*;
@@ -114,12 +110,9 @@ public class ManageyourEnergy {
             long necessary = Math.max(v[up][1], v[up][1] + v[up][2] - R);
             maxAvail_inter = Math.max(v[down][2] + eGain - necessary, 0); // energy saved for up
         }
-        
-        //out(ind + " " + maxAvail_down + " " + maxAvail_up);
-        
+                
         long maxAvail = Math.min(maxAvail_down, maxAvail_up);
         maxAvail = Math.min(maxAvail, maxAvail_inter);
-        //System.out.println("maxavail[" + ind + "] = " + maxAvail);
         v[ind][1] = maxAvail;
         v[ind][2] = Math.min(E, maxAvail_down - maxAvail + R);                 
     }
