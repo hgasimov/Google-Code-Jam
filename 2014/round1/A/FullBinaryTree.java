@@ -61,12 +61,12 @@ public class FullBinaryTree {
             for (int i = 0; i < children.size(); i++) cnt[i] = count(G, children.get(i), root);
             int sum = sum(cnt);
             
+            int[] slv = new int[children.size()];
+            for (int i = 0; i < children.size(); i++) slv[i] = solve(G, children.get(i), root);
+            
             for (int i = 0; i < children.size()-1; i++) {                
                 for (int j = i+1; j < children.size(); j++) {                    
-                    int del = sum - cnt[i] - cnt[j] 
-                            + solve(G, children.get(i), root)
-                            + solve(G, children.get(j), root);
-                    
+                    int del = sum - cnt[i] - cnt[j] + slv[i] + slv[j];
                     minDel = Math.min(minDel, del);
                 }
             }
